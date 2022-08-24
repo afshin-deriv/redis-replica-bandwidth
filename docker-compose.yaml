@@ -7,9 +7,7 @@ services:
       - REDIS_UPSTREAM_IP=${REDIS_UPSTREAM_IP}
       - REDIS_UPSTREAM_PORT=${REDIS_UPSTREAM_PORT}
       - REDIS_UPSTREAM_PASSWORD=${REDIS_UPSTREAM_PASSWORD}
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: redis
     ports:
       - 6381:6381
     restart: always
