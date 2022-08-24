@@ -7,7 +7,6 @@ EXPOSE 6381
 COPY redis.conf /data/
 COPY entrypoint.sh /data/
 ENTRYPOINT ["/data/entrypoint.sh"]
-#ENTRYPOINT ["redis-server", "/data/redis.conf"]
 
 
 
