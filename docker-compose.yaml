@@ -13,10 +13,10 @@ services:
     ports:
       - 6381:6381
     restart: always
-    networks:
-      - redis_net
     sysctls:
       - net.core.somaxconn=512
+    networks:
+      - redis_net
   datadog:
     container_name: datadog
     build: datadog
@@ -24,6 +24,9 @@ services:
       - redis
     environment:
       - DD_API_KEY=${DD_API_KEY}
+      - DD_LOG_LEVEL=error
+    networks:
+      - redis_net
 
 networks:
   redis_net:
