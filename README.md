@@ -1,5 +1,6 @@
 
 ```sh
+export DD_API_KEY=<DataDog API Key>
 export REDIS_UPSTREAM_IP=<Redis Master IP Address>
 export REDIS_UPSTREAM_PORT=<Redis Master Port>
 export REDIS_UPSTREAM_PASSWORD='<Redis Master Password>'

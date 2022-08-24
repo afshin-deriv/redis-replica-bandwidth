@@ -17,6 +17,14 @@ services:
       - redis_net
     sysctls:
       - net.core.somaxconn=512
+  datadog:
+    container_name: datadog
+    build: datadog
+    links:
+      - redis
+    environment:
+      - DD_API_KEY=${DD_API_KEY}
+
 networks:
   redis_net:
     driver: bridge
