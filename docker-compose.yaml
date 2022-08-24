@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  redis:
+    container_name: redis
+    environment:
+      - REDIS_UPSTREAM_IP=${REDIS_UPSTREAM_IP}
+      - REDIS_UPSTREAM_PORT=${REDIS_UPSTREAM_PORT}
+      - REDIS_UPSTREAM_PASSWORD=${REDIS_UPSTREAM_PASSWORD}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 6381:6381
+    restart: always
+    networks:
+      - redis_net
+    sysctls:
+      - net.core.somaxconn=512
+networks:
+  redis_net:
+    driver: bridge

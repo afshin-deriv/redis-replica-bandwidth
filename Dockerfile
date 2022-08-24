@@ -1,0 +1,13 @@
+FROM redis:latest
+ENV REDIS_UPSTREAM_IP ${REDIS_UPSTREAM_IP}
+ENV REDIS_UPSTREAM_PORT ${REDIS_UPSTREAM_PORT}
+ENV REDIS_UPSTREAM_PASSWORD ${REDIS_UPSTREAM_PASSWORD}
+
+EXPOSE 6381
+COPY redis.conf /data/
+COPY entrypoint.sh /data/
+ENTRYPOINT ["/data/entrypoint.sh"]
+#ENTRYPOINT ["redis-server", "/data/redis.conf"]
+
+
+
