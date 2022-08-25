@@ -23,8 +23,9 @@ services:
     environment:
       - DD_API_KEY=${DD_API_KEY}
       - DD_AGENT_HOST=${DD_AGENT_HOST}
-      - DD_CONTAINER_INCLUDE="redis"
-      - DD_CONTAINER_INCLUDE_METRICS="redis"
+      - DD_CONTAINER_INCLUDE="redis, monitor"
+      - DD_CONTAINER_INCLUDE_METRICS="redis, monitor"
+      - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true
       - DD_LOG_LEVEL=error
     networks:
       - redis_net

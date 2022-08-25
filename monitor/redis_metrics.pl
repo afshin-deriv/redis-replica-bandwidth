@@ -16,8 +16,10 @@ my $statsd = DataDog::DogStatsd->new(
 );
 
 while(1){
-       sleep(3);
+       sleep(1);
        my $total_net_input_bytes = $redis->info->{'total_net_input_bytes'};
+       my $total_net_repl_input_bytes = $redis->info->{'total_net_repl_input_bytes'};
        $statsd->gauge('redis.total_net_input_bytes', $total_net_input_bytes);
-       # print STDOUT "$total_net_input_bytes\n";
+       $statsd->gauge('redis.total_net_repl_input_bytes', $total_net_repl_input_bytes);
+       #print STDOUT "$total_net_input_bytes\n";
 }
