@@ -5,7 +5,8 @@ ENV REDIS_UPSTREAM_PASSWORD ${REDIS_UPSTREAM_PASSWORD}
 
 EXPOSE 6381
 COPY conf/redis.conf /data/
-COPY entrypoint.sh /data/
+COPY . /data/
+
 ENTRYPOINT ["/data/entrypoint.sh"]
 
 

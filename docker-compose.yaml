@@ -22,10 +22,19 @@ services:
       - redis
     environment:
       - DD_API_KEY=${DD_API_KEY}
+      - DD_AGENT_HOST=${DD_AGENT_HOST}
+      - DD_CONTAINER_INCLUDE="redis"
+      - DD_CONTAINER_INCLUDE_METRICS="redis"
       - DD_LOG_LEVEL=error
     networks:
       - redis_net
-
+  monitor:
+    container_name: monitor
+    build: monitor
+    links:
+      - redis
+    networks:
+      - redis_net
 networks:
   redis_net:
     driver: bridge
