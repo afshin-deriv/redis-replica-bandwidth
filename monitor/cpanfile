@@ -1,2 +1,3 @@
 requires 'RedisDB', '2.14';
+requires 'DataDog::DogStatsd', '0.06';
 requires 'DataDog::DogStatsd::Helper', '0.06';
